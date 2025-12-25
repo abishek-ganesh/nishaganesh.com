@@ -224,6 +224,42 @@
             color: var(--accent);
         }
 
+        /* Easter Egg Styles */
+        .easter-egg-tooltip {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--primary);
+            color: white;
+            padding: 20px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .easter-egg-tooltip.show {
+            opacity: 1;
+        }
+
+        .dancing-emoji {
+            position: fixed;
+            font-size: 4rem;
+            z-index: 9999;
+            pointer-events: none;
+            animation: dance 0.5s ease-in-out infinite;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             header {
@@ -337,5 +373,63 @@
         </div>
     </section>
 
+    <!-- Easter Egg Elements -->
+    <div class="easter-egg-tooltip" id="easterEggTooltip">My older brother is Abishek and he's a cool guy!</div>
+
+    <script>
+        // Easter Egg 1: Click profile photo 5 times
+        (function() {
+            const photo = document.querySelector('.profile-photo');
+            const tooltip = document.getElementById('easterEggTooltip');
+            let clickCount = 0;
+            let clickTimer;
+
+            photo.style.cursor = 'pointer';
+            photo.addEventListener('click', function() {
+                clickCount++;
+                clearTimeout(clickTimer);
+
+                if (clickCount >= 5) {
+                    tooltip.classList.add('show');
+                    setTimeout(() => tooltip.classList.remove('show'), 3000);
+                    clickCount = 0;
+                }
+
+                clickTimer = setTimeout(() => clickCount = 0, 2000);
+            });
+        })();
+
+        // Easter Egg 2: Type "bro" anywhere
+        (function() {
+            let typed = '';
+            const secret = 'bro';
+
+            document.addEventListener('keydown', function(e) {
+                typed += e.key.toLowerCase();
+                typed = typed.slice(-secret.length);
+
+                if (typed === secret) {
+                    spawnDancingEmojis();
+                    typed = '';
+                }
+            });
+
+            function spawnDancingEmojis() {
+                const emojis = ['🕺', '💃', '🎉', '🎊', '✨'];
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        const emoji = document.createElement('div');
+                        emoji.className = 'dancing-emoji';
+                        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        emoji.style.left = Math.random() * 80 + 10 + '%';
+                        emoji.style.top = Math.random() * 80 + 10 + '%';
+                        document.body.appendChild(emoji);
+
+                        setTimeout(() => emoji.remove(), 2000);
+                    }, i * 150);
+                }
+            }
+        })();
+    </script>
 </body>
 </html>
