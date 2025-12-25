@@ -58,6 +58,7 @@
             border: 4px solid rgba(255,255,255,0.3);
             margin-bottom: 24px;
             object-fit: cover;
+            object-position: center 20%;
             background: rgba(255,255,255,0.1);
         }
 
@@ -185,6 +186,15 @@
             color: var(--text);
         }
 
+        .publication .synopsis {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
         /* Contact */
         .contact-info {
             display: flex;
@@ -212,15 +222,6 @@
 
         .contact-item a:hover {
             color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
         }
 
         /* Responsive */
@@ -293,6 +294,9 @@
                 <p class="authors">
                     Fass OZ, Pandolfino JE, Schauer JM, <strong>Ganesh N</strong>, Farina DA, Lat A, Goudie E, Kelahan LC, Carlson DA
                 </p>
+                <p class="synopsis">
+                    This study re-examined the diagnostic accuracy of timed barium esophagram (TBE) for achalasia using updated reference standards. We found that a classification tree model incorporating multiple metrics achieved 88.3% accuracy, significantly outperforming traditional single-metric methods, offering clinicians a standardized and more reliable approach to TBE interpretation.
+                </p>
             </article>
 
             <article class="publication">
@@ -304,6 +308,9 @@
                 <p class="journal">Expert Opinion on Biological Therapy. 2023 Jul-Dec;23(10):941-949.</p>
                 <p class="authors">
                     <strong>Ganesh N</strong>, Hanauer SB, Dulai PS
+                </p>
+                <p class="synopsis">
+                    This review summarizes factors that predict responsiveness to biologic agents in Crohn's disease, including patient characteristics, disease phenotype, genetic markers, and gut microbiome composition. We discuss emerging clinical decision support tools powered by machine learning that may help clinicians optimize biologic selection for individual patients.
                 </p>
             </article>
         </div>
@@ -317,7 +324,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>nganesh [at] uw.edu</span>
+                    <a href="mailto:nishagan@uw.edu">nishagan@uw.edu</a>
                 </div>
                 <div class="contact-item">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -330,10 +337,5 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Nisha Ganesh, MD. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
