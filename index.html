@@ -153,6 +153,20 @@
             margin-bottom: 16px;
         }
 
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-photo img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
         /* Publications */
         .publication {
             background: var(--bg);
@@ -294,6 +308,15 @@
             .publication {
                 padding: 20px;
             }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .about-photo {
+                order: -1;
+            }
         }
     </style>
 </head>
@@ -318,13 +341,18 @@
     <section id="about">
         <div class="container">
             <h2>About</h2>
-            <div class="about-content">
-                <p>
-                    I am a Gastroenterology Fellow at the University of Washington, where I am dedicated to advancing patient care through clinical excellence and research.
-                </p>
-                <p>
-                    My research interests include esophageal motility disorders, inflammatory bowel disease, and the application of clinical decision support tools in gastroenterology. I am passionate about translating research findings into improved patient outcomes.
-                </p>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p>
+                        I am a Gastroenterology Fellow at the University of Washington, where I am dedicated to advancing patient care through clinical excellence and research.
+                    </p>
+                    <p>
+                        My research interests include esophageal motility disorders, inflammatory bowel disease, and the application of clinical decision support tools in gastroenterology. I am passionate about translating research findings into improved patient outcomes.
+                    </p>
+                </div>
+                <figure class="about-photo">
+                    <img src="nisha-endoscopy.jpg" alt="Dr. Nisha Ganesh performing an endoscopy" loading="lazy">
+                </figure>
             </div>
         </div>
     </section>
